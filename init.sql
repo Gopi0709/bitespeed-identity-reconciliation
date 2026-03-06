@@ -1,0 +1,10 @@
+CREATE TABLE contact (
+  id SERIAL PRIMARY KEY,
+  phoneNumber VARCHAR(20),
+  email VARCHAR(255),
+  linkedId INTEGER,
+  linkPrecedence VARCHAR(10) NOT NULL,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  deletedAt TIMESTAMP
+);

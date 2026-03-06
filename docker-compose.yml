@@ -1,0 +1,21 @@
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: bitespeed_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bitespeed
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  app:
+    build: .
+    container_name: bitespeed_app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
